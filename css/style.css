@@ -152,8 +152,12 @@ a {
   padding: 2.5% 5%;
 }
 
-ul {
+ul,li{
   list-style-type: none;
+}
+
+#header li{
+  padding: 0.2em 0;
 }
 
 .biopic {
