@@ -29,7 +29,7 @@ var bio = {
       role:"Front End Developer",
       contacts:contactInfo,
       welcomeMessage:"Welcome to Viki's website",
-      skills:["skill1","skill2","skill3","skill4"],
+      skills:["HTML","CSS","Javascript","jQuery","SublimeText"],
       bioPic:"images/Viki_Zhang.png"
 };
 var defaultHeader = [
@@ -79,14 +79,15 @@ $("#header").append(realHTMLbioPic);
 var newHTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 $("#header").append(newHTMLwelcomeMsg);
 
-// TODO:Bug need to fix--------------------------------------------------------
+// DONE--------------------------------------------------------
 $("#header").append(HTMLskillsStart);
 
 for (var i = 0; i < bio.skills.length; i++) {
-  var newHTMLskills;
-  newHTMLskills += HTMLskills.replace("%data%",bio.skills[i]);
+  var newHTMLskills=[];
+   newHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
+   $("#header").append(newHTMLskills);
 }
-$("#header").append(newHTMLskills);
+
 // DONE-----------------------------------------------------------------------------------------------------
 $("#workExperience").append(HTMLworkStart);
 
