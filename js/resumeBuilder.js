@@ -114,6 +114,7 @@ var education = {
 };
 
 // DONE-----------------------------------------------------------------------------------------------------
+
 var defaultHeader = [
     HTMLheaderName,
     HTMLheaderRole
@@ -123,6 +124,7 @@ var realHeader = [
     bio.role
 ];
 bio.display = replaceAndPrepend("#header", defaultHeader, realHeader);
+$("#name").after(internationalizeButton);
 
 // DONE-----------------------------------------------------------------------------------------------------
 var defaultContacts = [
@@ -268,6 +270,7 @@ var realOnlineCourses2nd = [
 ];
 education.onlineCourses.lynda.display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses2nd);
 // -----------------------------------------------------------------------------------------------------
+
 
 $("#mapDiv").append(googleMap);
 
