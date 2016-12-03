@@ -23,6 +23,8 @@ function replaceAndAppend(cssSelector, HTMLstring, realInfo) {
     }
 
 }
+
+
 // Viki's Personal Objects-----------------------------------------------------------------------------------------------------
 var bio = {
     name: "Viki Zhang",
@@ -108,7 +110,7 @@ var education = {
             school: "Lynda.com",
             degree: "none",
             dates: "2013-2016",
-            url: "http://www.lynda.com"
+            url: "www.lynda.com"
         }
     }
 };
@@ -276,3 +278,38 @@ $("#mapDiv").append(googleMap);
 
 // -----------------------------------------------------------------------------------------------------
 replaceAndAppend("#footerContacts", defaultContacts, realContacts);
+
+// TODO: unable to replace the # in the fakelinks through the for loop and don't know why--------------
+var realLinks = ["www.everjet.com",
+    "www.hytera.com",
+    "www.vikizhang.com/project1",
+    "www.vikizhang.com/project2",
+    "www.xidian.edu.cn",
+    "www.udacity.com",
+    "www.udacity.com",
+    "www.lynda.com",
+    "www.lynda.com"
+];
+
+var fakeLinks = Array.prototype.slice.call(document.querySelectorAll('a[href="#"]'));
+
+// // for (var i = 0; i < fakeLinks.length; i++) {
+// //     var fakeLinksToString = fakeLinks[i].toString();
+// //     var tureLinks = fakelinksToString.replace("file:///Users/Viki/Documents/frontend-nanodegree-resume/index.html#","href="+realLinks[i]);
+// //     console.log(tureLinks);
+
+// // }
+
+// var abc= fakeLinks[0].toString();
+// var bcd =abc.replace("'href="#"'", "href='"+realLinks[0]+"'");
+// console.log(bcd);
+
+
+
+
+
+
+
+
+
+
