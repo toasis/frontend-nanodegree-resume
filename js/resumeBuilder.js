@@ -68,23 +68,23 @@ var work = {
     }]
 };
 var projects = {
-    project1: {
+    projects:[{
         title: "A responsive Blog",
         dates: "10-2016",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
         image: ["images/FeatureWorks_PH1.png"]
-    },
-    project2: {
+    }, {
         title: "A Javascript based online resume",
         dates: "11-2016",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
         image: ["images/FeatureWorks_PH1.png"]
-    }
+    }]
 
 };
 
+
 var education = {
-    schools: {
+    schools: [{
         name: "Xidian University",
         location: "Xi'an",
         degree: "Bachelor",
@@ -96,24 +96,34 @@ var education = {
         ],
         dates: "2002-2006",
         url: "http://www.xidian.edu.cn"
-    },
-    onlineCourses: {
-        udaCity: {
-            title: "Udacity Front End Nano Degree",
-            school: "Udacity",
-            degree: "NanoDegree",
-            dates: "2016-now",
-            url: "http://www.udacity.com"
-        },
-        lynda: {
-            title: "Lynda online Course",
-            school: "Lynda.com",
-            degree: "none",
-            dates: "2013-2016",
-            url: "www.lynda.com"
-        }
-    }
+    }, {
+        name: "HighSchool",
+        location: "Gui'Yang",
+        degree: "High School",
+        majors: [
+            "Math",
+            "Chinese",
+            "ipsum dolor sit amet",
+            "ipsum dolor sit amet"
+        ],
+        dates: "1999-2002",
+        url: "http://www.xidian.edu.cn"
+    }],
+    onlineCourses: [{
+        title: "Udacity Front End Nano Degree",
+        school: "Udacity",
+        degree: "NanoDegree",
+        dates: "2016-now",
+        url: "http://www.udacity.com"
+    }, {
+        title: "Lynda online Course",
+        school: "Lynda.com",
+        degree: "none",
+        dates: "2013-2016",
+        url: "www.lynda.com"
+    }]
 };
+
 
 // DONE-----------------------------------------------------------------------------------------------------
 
@@ -208,21 +218,21 @@ var defaultProjectDetails = [
 ];
 
 var realProjectDetails1st = [
-    projects.project1.title,
-    projects.project1.dates,
-    projects.project1.description,
-    projects.project1.image
+    projects.projects[0].title,
+    projects.projects[0].dates,
+    projects.projects[0].description,
+    projects.projects[0].image
 ];
 
-projects.project1.display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails1st);
+projects.projects[0].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails1st);
 
 var realProjectDetails2nd = [
-    projects.project2.title,
-    projects.project2.dates,
-    projects.project2.description,
-    projects.project2.image
+    projects.projects[1].title,
+    projects.projects[1].dates,
+    projects.projects[1].description,
+    projects.projects[1].image
 ];
-projects.project2.display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails2nd);
+projects.projects[1].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails2nd);
 
 // DONE-----------------------------------------------------------------------------------------------------
 $("#education").append(HTMLschoolStart);
@@ -235,15 +245,24 @@ var defaultSchoolDetails = [
     HTMLschoolMajor
 ];
 
-var realSchoolDetails = [
-    education.schools.name,
-    education.schools.degree,
-    education.schools.dates,
-    education.schools.location,
-    education.schools.majors
+var realSchoolDetails1st = [
+    education.schools[0].name,
+    education.schools[0].degree,
+    education.schools[0].dates,
+    education.schools[0].location,
+    education.schools[0].majors
 ];
 
-education.schools.display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails);
+var realSchoolDetails2nd = [
+    education.schools[1].name,
+    education.schools[1].degree,
+    education.schools[1].dates,
+    education.schools[1].location,
+    education.schools[1].majors
+];
+
+education.schools[0].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails1st);
+education.schools[1].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails2nd);
 // ---------------------------------------------------------------
 var defaultOnlineCoursesDetails = [
     HTMLonlineClasses,
@@ -254,23 +273,23 @@ var defaultOnlineCoursesDetails = [
 ];
 
 var realOnlineCourses1st = [
-    education.onlineCourses.udaCity.title,
-    education.onlineCourses.udaCity.school,
-    education.onlineCourses.udaCity.degree,
-    education.onlineCourses.udaCity.dates,
-    education.onlineCourses.udaCity.url
+    education.onlineCourses[0].title,
+    education.onlineCourses[0].school,
+    education.onlineCourses[0].degree,
+    education.onlineCourses[0].dates,
+    education.onlineCourses[0].url
 ];
 
-education.onlineCourses.udaCity.display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses1st);
+education.onlineCourses[0].display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses1st);
 
 var realOnlineCourses2nd = [
-    education.onlineCourses.lynda.title,
-    education.onlineCourses.lynda.school,
-    education.onlineCourses.lynda.degree,
-    education.onlineCourses.lynda.dates,
-    education.onlineCourses.lynda.url
+    education.onlineCourses[1].title,
+    education.onlineCourses[1].school,
+    education.onlineCourses[1].degree,
+    education.onlineCourses[1].dates,
+    education.onlineCourses[1].url
 ];
-education.onlineCourses.lynda.display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses2nd);
+education.onlineCourses[1].display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses2nd);
 // -----------------------------------------------------------------------------------------------------
 
 
