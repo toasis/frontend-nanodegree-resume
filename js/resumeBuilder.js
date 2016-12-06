@@ -72,12 +72,12 @@ var projects = {
         title: "A responsive Blog",
         dates: "10-2016",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
-        image: ["images/FeatureWorks_PH1.png"]
+        images: ["images/FeatureWorks_PH1.png"]
     }, {
         title: "A Javascript based online resume",
         dates: "11-2016",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
-        image: ["images/FeatureWorks_PH1.png"]
+        images: ["images/FeatureWorks_PH1.png"]
     }]
 
 };
@@ -221,7 +221,7 @@ var realProjectDetails1st = [
     projects.projects[0].title,
     projects.projects[0].dates,
     projects.projects[0].description,
-    projects.projects[0].image
+    projects.projects[0].images
 ];
 
 projects.projects[0].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails1st);
@@ -230,7 +230,7 @@ var realProjectDetails2nd = [
     projects.projects[1].title,
     projects.projects[1].dates,
     projects.projects[1].description,
-    projects.projects[1].image
+    projects.projects[1].images
 ];
 projects.projects[1].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails2nd);
 
