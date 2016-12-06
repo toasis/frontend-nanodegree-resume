@@ -6,7 +6,7 @@
  */
 function replaceAndPrepend(cssSelector, HTMLstring, realInfo) {
     'use strict';
-    for (i = 0; i < HTMLstring.length; i += 1) {
+    for (var i = 0; i < HTMLstring.length; i += 1) {
         var newHTMLstring = [];
         newHTMLstring = HTMLstring[i].replace("%data%", realInfo[i]);
         $(cssSelector).prepend(newHTMLstring);
@@ -16,12 +16,21 @@ function replaceAndPrepend(cssSelector, HTMLstring, realInfo) {
 
 function replaceAndAppend(cssSelector, HTMLstring, realInfo) {
     'use strict';
-    for (i = 0; i < HTMLstring.length; i += 1) {
+    for ( var i = 0; i < HTMLstring.length; i += 1) {
         var newHTMLstring = [];
         newHTMLstring = HTMLstring[i].replace("%data%", realInfo[i]);
         $(cssSelector).append(newHTMLstring);
     }
 
+}
+
+function appendSkills() {
+    'use strict';
+    for (var i = 0; i < bio.skills.length; i+=1) {
+        var newHTMLskills = [];
+        newHTMLskills = HTMLskills.replace("%data%", bio.skills[i]);
+        $("#header").append(newHTMLskills);
+    };
 }
 
 
@@ -170,11 +179,7 @@ $("#header").append(newHTMLwelcomeMsg);
 // DONE--------------------------------------------------------
 $("#header").append(HTMLskillsStart);
 
-for (var i = 0; i < bio.skills.length; i++) {
-    var newHTMLskills = [];
-    newHTMLskills = HTMLskills.replace("%data%", bio.skills[i]);
-    $("#header").append(newHTMLskills);
-}
+bio.display= appendSkills();
 
 // DONE-----------------------------------------------------------------------------------------------------
 $("#workExperience").append(HTMLworkStart);
