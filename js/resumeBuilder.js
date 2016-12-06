@@ -16,17 +16,19 @@ function replaceAndPrepend(cssSelector, HTMLstring, realInfo) {
 
 function replaceAndAppend(cssSelector, HTMLstring, realInfo) {
     'use strict';
-    for ( var i = 0; i < HTMLstring.length; i += 1) {
+    for (var i = 0; i < HTMLstring.length; i += 1) {
         var newHTMLstring = [];
         newHTMLstring = HTMLstring[i].replace("%data%", realInfo[i]);
         $(cssSelector).append(newHTMLstring);
     }
 
 }
-
+/**
+ * @description Replace %data% in HTMLskills to my real info.
+ */
 function appendSkills() {
     'use strict';
-    for (var i = 0; i < bio.skills.length; i+=1) {
+    for (var i = 0; i < bio.skills.length; i += 1) {
         var newHTMLskills = [];
         newHTMLskills = HTMLskills.replace("%data%", bio.skills[i]);
         $("#header").append(newHTMLskills);
@@ -77,7 +79,7 @@ var work = {
     }]
 };
 var projects = {
-    projects:[{
+    projects: [{
         title: "A responsive Blog",
         dates: "10-2016",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
@@ -90,7 +92,6 @@ var projects = {
     }]
 
 };
-
 
 var education = {
     schools: [{
@@ -133,42 +134,20 @@ var education = {
     }]
 };
 
+// Header-----------------------------------------------------------------------------------------------------
 
-// DONE-----------------------------------------------------------------------------------------------------
+$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
 
-var defaultHeader = [
-    HTMLheaderName,
-    HTMLheaderRole
-];
-var realHeader = [
-    bio.name,
-    bio.role
-];
-bio.display = replaceAndPrepend("#header", defaultHeader, realHeader);
 $("#name").after(internationalizeButton);
 
-// DONE-----------------------------------------------------------------------------------------------------
-var defaultContacts = [
-    HTMLmobile,
-    HTMLemail,
-    HTMLtwitter,
-    HTMLgithub,
-    HTMLblog,
-    HTMLlocation
-];
+$("#topContacts,#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+$("#topContacts,#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+$("#topContacts,#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+$("#topContacts,#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#topContacts,#footerContacts").append(HTMLblog.replace("%data%", bio.contacts.blog));
+$("#topContacts,footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
-var realContacts = [
-    bio.contacts.mobile,
-    bio.contacts.email,
-    bio.contacts.twitter,
-    bio.contacts.github,
-    bio.contacts.blog,
-    bio.contacts.location
-];
-
-bio.contacts.display = replaceAndAppend("#topContacts", defaultContacts, realContacts);
-
-// DONE-----------------------------------------------------------------------------------------------------
 
 var realHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
 $("#header").append(realHTMLbioPic);
@@ -176,12 +155,11 @@ $("#header").append(realHTMLbioPic);
 var newHTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 $("#header").append(newHTMLwelcomeMsg);
 
-// DONE--------------------------------------------------------
 $("#header").append(HTMLskillsStart);
 
-bio.display= appendSkills();
+bio.display = appendSkills();
 
-// DONE-----------------------------------------------------------------------------------------------------
+// Work Experience-----------------------------------------------------------------------------------------------------
 $("#workExperience").append(HTMLworkStart);
 
 var defaultWorkDetails = [
@@ -212,7 +190,7 @@ var realWorkDetails2nd = [
 
 work.jobs[1].display = replaceAndAppend(".work-entry", defaultWorkDetails, realWorkDetails2nd);
 
-// DONE-----------------------------------------------------------------------------------------------------
+// Projects-----------------------------------------------------------------------------------------------------
 $("#projects").append(HTMLprojectStart);
 
 var defaultProjectDetails = [
@@ -239,7 +217,7 @@ var realProjectDetails2nd = [
 ];
 projects.projects[1].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails2nd);
 
-// DONE-----------------------------------------------------------------------------------------------------
+// Education-----------------------------------------------------------------------------------------------------
 $("#education").append(HTMLschoolStart);
 
 var defaultSchoolDetails = [
@@ -268,7 +246,7 @@ var realSchoolDetails2nd = [
 
 education.schools[0].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails1st);
 education.schools[1].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails2nd);
-// ---------------------------------------------------------------
+// Education.onlineCourse-----------------------------------------------------
 var defaultOnlineCoursesDetails = [
     HTMLonlineClasses,
     HTMLonlineTitle,
@@ -295,45 +273,8 @@ var realOnlineCourses2nd = [
     education.onlineCourses[1].url
 ];
 education.onlineCourses[1].display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses2nd);
-// -----------------------------------------------------------------------------------------------------
 
+// Google Map-----------------------------------------------------------------------------------------------------
 
 $("#mapDiv").append(googleMap);
-
-// -----------------------------------------------------------------------------------------------------
-replaceAndAppend("#footerContacts", defaultContacts, realContacts);
-
-// TODO: unable to replace the # in the fakelinks through the for loop and don't know why--------------
-// var realLinks = ["www.everjet.com",
-//     "www.hytera.com",
-//     "www.vikizhang.com/project1",
-//     "www.vikizhang.com/project2",
-//     "www.xidian.edu.cn",
-//     "www.udacity.com",
-//     "www.udacity.com",
-//     "www.lynda.com",
-//     "www.lynda.com"
-// ];
-
-// var fakeLinks = Array.prototype.slice.call(document.querySelectorAll('a[href="#"]'));
-
-// // for (var i = 0; i < fakeLinks.length; i++) {
-// //     var fakeLinksToString = fakeLinks[i].toString();
-// //     var tureLinks = fakelinksToString.replace("file:///Users/Viki/Documents/frontend-nanodegree-resume/index.html#","href="+realLinks[i]);
-// //     console.log(tureLinks);
-
-// // }
-
-// var abc= fakeLinks[0].toString();
-// var bcd =abc.replace("'href="#"'", "href='"+realLinks[0]+"'");
-// console.log(bcd);
-
-
-
-
-
-
-
-
-
 
