@@ -33,7 +33,14 @@ function appendSkills() {
         newHTMLskills = HTMLskills.replace("%data%", bio.skills[i]);
         $("#header").append(newHTMLskills);
     };
+    $("#topContacts,#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+    $("#topContacts,#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    $("#topContacts,#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+    $("#topContacts,#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    $("#topContacts,#footerContacts").append(HTMLblog.replace("%data%", bio.contacts.blog));
+    $("#topContacts,footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 }
+
 
 
 // Viki's Personal Objects-----------------------------------------------------------------------------------------------------
@@ -140,14 +147,6 @@ $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
 $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
 
 $("#name").after(internationalizeButton);
-
-$("#topContacts,#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-$("#topContacts,#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-$("#topContacts,#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-$("#topContacts,#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-$("#topContacts,#footerContacts").append(HTMLblog.replace("%data%", bio.contacts.blog));
-$("#topContacts,footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
-
 
 var realHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
 $("#header").append(realHTMLbioPic);
