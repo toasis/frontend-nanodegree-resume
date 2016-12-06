@@ -246,8 +246,10 @@ var realSchoolDetails2nd = [
 education.schools[0].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails1st);
 education.schools[1].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails2nd);
 // Education.onlineCourse-----------------------------------------------------
+$(".education-entry").append(HTMLonlineClasses);
+var formattedonlineTitle1 = HTMLonlineTitle.replace("#",education.onlineCourses[0].url).replace("%data%","Udacity");
+var formattedonlineTitle2 = HTMLonlineTitle.replace("#",education.onlineCourses[1].url).replace("%data%","Lynda");
 var defaultOnlineCoursesDetails = [
-    HTMLonlineClasses,
     HTMLonlineTitle,
     HTMLonlineSchool,
     HTMLonlineDates,
@@ -255,7 +257,7 @@ var defaultOnlineCoursesDetails = [
 ];
 
 var realOnlineCourses1st = [
-    education.onlineCourses[0].title,
+    formattedonlineTitle1,
     education.onlineCourses[0].school,
     education.onlineCourses[0].degree,
     education.onlineCourses[0].dates,
@@ -265,7 +267,7 @@ var realOnlineCourses1st = [
 education.onlineCourses[0].display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses1st);
 
 var realOnlineCourses2nd = [
-    education.onlineCourses[1].title,
+    formattedonlineTitle2,
     education.onlineCourses[1].school,
     education.onlineCourses[1].degree,
     education.onlineCourses[1].dates,
@@ -277,3 +279,10 @@ education.onlineCourses[1].display = replaceAndAppend(".education-entry", defaul
 
 $("#mapDiv").append(googleMap);
 
+//Replace # with my real info.
+
+console.log(formattedonlineTitle);
+HTMLprojectTitle
+HTMLschoolName
+HTMLonlineTitle
+HTMLonlineURL
