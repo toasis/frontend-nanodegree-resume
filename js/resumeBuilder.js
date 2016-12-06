@@ -53,7 +53,7 @@ var work = {
         employer: "ShenZhen Everjet Co., Ltd",
         title: "Technical Support Engineer",
         location: "Shenzhen,China",
-        date: "2006-2010",
+        dates: "2006-2010",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
             "Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris" +
             "nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor"
@@ -61,7 +61,7 @@ var work = {
         employer: "Hytera Communications Co., Ltd ",
         title: "Oversea Service Manager",
         location: "Nanshan, Shenzhen, China",
-        date: "2010-2013",
+        dates: "2010-2013",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
             "Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris" +
             "nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor"
@@ -190,7 +190,7 @@ var defaultWorkDetails = [
 var realWorkDetails1st = [
     work.jobs[0].employer,
     work.jobs[0].title,
-    work.jobs[0].date,
+    work.jobs[0].dates,
     work.jobs[0].location,
     work.jobs[0].description
 ];
@@ -200,7 +200,7 @@ work.jobs[0].display = replaceAndAppend(".work-entry", defaultWorkDetails, realW
 var realWorkDetails2nd = [
     work.jobs[1].employer,
     work.jobs[1].title,
-    work.jobs[1].date,
+    work.jobs[1].dates,
     work.jobs[1].location,
     work.jobs[1].description
 ];
