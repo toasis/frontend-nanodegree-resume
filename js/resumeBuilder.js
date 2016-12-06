@@ -45,7 +45,7 @@ var bio = {
         "jQuery",
         "SublimeText"
     ],
-    bioPic: "images/Viki_Zhang.png"
+    biopic: "images/Viki_Zhang.png"
 };
 
 var work = {
@@ -161,7 +161,7 @@ bio.contacts.display = replaceAndAppend("#topContacts", defaultContacts, realCon
 
 // DONE-----------------------------------------------------------------------------------------------------
 
-var realHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var realHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
 $("#header").append(realHTMLbioPic);
 
 var newHTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
