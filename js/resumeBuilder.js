@@ -24,9 +24,9 @@ function replaceAndAppend(cssSelector, HTMLstring, realInfo) {
 
 }
 /**
- * @description Replace %data% in HTMLskills to my real info.
+ * @description Replace %data% in HTMLskills and HTML contacts with my real info.
  */
-function appendSkills() {
+function appendContactsAndSkills() {
     'use strict';
     for (var i = 0; i < bio.skills.length; i += 1) {
         var newHTMLskills = [];
@@ -156,7 +156,7 @@ $("#header").append(newHTMLwelcomeMsg);
 
 $("#header").append(HTMLskillsStart);
 
-bio.display = appendSkills();
+bio.display = appendContactsAndSkills();
 
 // Work Experience-----------------------------------------------------------------------------------------------------
 $("#workExperience").append(HTMLworkStart);
