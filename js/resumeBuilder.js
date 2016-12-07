@@ -32,7 +32,7 @@ function appendContactsAndSkills() {
         var newHTMLskills = [];
         newHTMLskills = HTMLskills.replace("%data%", bio.skills[i]);
         $("#header").append(newHTMLskills);
-    };
+    }
     $("#topContacts,#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
     $("#topContacts,#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
     $("#topContacts,#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
@@ -247,8 +247,8 @@ education.schools[0].display = replaceAndAppend(".education-entry", defaultSchoo
 education.schools[1].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails2nd);
 // Education.onlineCourse-----------------------------------------------------
 $(".education-entry").append(HTMLonlineClasses);
-var formattedonlineTitle1 = HTMLonlineTitle.replace("#",education.onlineCourses[0].url).replace("%data%","Udacity");
-var formattedonlineTitle2 = HTMLonlineTitle.replace("#",education.onlineCourses[1].url).replace("%data%","Lynda");
+var formattedonlineTitle1 = HTMLonlineTitle.replace("#", education.onlineCourses[0].url).replace("%data%", "Udacity");
+var formattedonlineTitle2 = HTMLonlineTitle.replace("#", education.onlineCourses[1].url).replace("%data%", "Lynda");
 var defaultOnlineCoursesDetails = [
     HTMLonlineTitle,
     HTMLonlineSchool,
@@ -278,11 +278,3 @@ education.onlineCourses[1].display = replaceAndAppend(".education-entry", defaul
 // Google Map-----------------------------------------------------------------------------------------------------
 
 $("#mapDiv").append(googleMap);
-
-//Replace # with my real info.
-
-console.log(formattedonlineTitle);
-HTMLprojectTitle
-HTMLschoolName
-HTMLonlineTitle
-HTMLonlineURL
