@@ -143,137 +143,159 @@ var education = {
 
 // Header-----------------------------------------------------------------------------------------------------
 
-$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
-$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+bio.display = function() {
+    $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+    $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+    $("#name").after(internationalizeButton);
+    var realHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
+    $("#header").append(realHTMLbioPic);
+    var newHTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(newHTMLwelcomeMsg);
+    $("#header").append(HTMLskillsStart);
+    appendContactsAndSkills();
+};
 
-$("#name").after(internationalizeButton);
-
-var realHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
-$("#header").append(realHTMLbioPic);
-
-var newHTMLwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(newHTMLwelcomeMsg);
-
-$("#header").append(HTMLskillsStart);
-
-bio.display = appendContactsAndSkills();
+bio.display();
 
 // Work Experience-----------------------------------------------------------------------------------------------------
-$("#workExperience").append(HTMLworkStart);
+work.display = function() {
+    $("#workExperience").append(HTMLworkStart);
+    var defaultWorkDetails = [
+        HTMLworkEmployer,
+        HTMLworkTitle,
+        HTMLworkDates,
+        HTMLworkLocation,
+        HTMLworkDescription
+    ];
+    var realWorkDetails1st = [
+        work.jobs[0].employer,
+        work.jobs[0].title,
+        work.jobs[0].dates,
+        work.jobs[0].location,
+        work.jobs[0].description
+    ];
+    work.jobs[0].display = function() {
+        replaceAndAppend(".work-entry", defaultWorkDetails, realWorkDetails1st);
+    };
+    var realWorkDetails2nd = [
+        work.jobs[1].employer,
+        work.jobs[1].title,
+        work.jobs[1].dates,
+        work.jobs[1].location,
+        work.jobs[1].description
+    ];
+    work.jobs[0].display();
+    work.jobs[1].display = function() {
+        replaceAndAppend(".work-entry", defaultWorkDetails, realWorkDetails2nd);
+    };
+    work.jobs[1].display();
+};
 
-var defaultWorkDetails = [
-    HTMLworkEmployer,
-    HTMLworkTitle,
-    HTMLworkDates,
-    HTMLworkLocation,
-    HTMLworkDescription
-];
-
-var realWorkDetails1st = [
-    work.jobs[0].employer,
-    work.jobs[0].title,
-    work.jobs[0].dates,
-    work.jobs[0].location,
-    work.jobs[0].description
-];
-
-work.jobs[0].display = replaceAndAppend(".work-entry", defaultWorkDetails, realWorkDetails1st);
-
-var realWorkDetails2nd = [
-    work.jobs[1].employer,
-    work.jobs[1].title,
-    work.jobs[1].dates,
-    work.jobs[1].location,
-    work.jobs[1].description
-];
-
-work.jobs[1].display = replaceAndAppend(".work-entry", defaultWorkDetails, realWorkDetails2nd);
+work.display();
 
 // Projects-----------------------------------------------------------------------------------------------------
-$("#projects").append(HTMLprojectStart);
+projects.display = function() {
+    $("#projects").append(HTMLprojectStart);
 
-var defaultProjectDetails = [
-    HTMLprojectTitle,
-    HTMLprojectDates,
-    HTMLprojectDescription,
-    HTMLprojectImage
-];
+    var defaultProjectDetails = [
+        HTMLprojectTitle,
+        HTMLprojectDates,
+        HTMLprojectDescription,
+        HTMLprojectImage
+    ];
+    var realProjectDetails1st = [
+        projects.projects[0].title,
+        projects.projects[0].dates,
+        projects.projects[0].description,
+        projects.projects[0].images
+    ];
+    projects.projects[0].display = function() {
+        replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails1st);
+    };
+    projects.projects[0].display();
 
-var realProjectDetails1st = [
-    projects.projects[0].title,
-    projects.projects[0].dates,
-    projects.projects[0].description,
-    projects.projects[0].images
-];
+    var realProjectDetails2nd = [
+        projects.projects[1].title,
+        projects.projects[1].dates,
+        projects.projects[1].description,
+        projects.projects[1].images
+    ];
+    projects.projects[1].display = function() {
+        replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails2nd);
+    };
+    projects.projects[1].display();
+};
 
-projects.projects[0].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails1st);
-
-var realProjectDetails2nd = [
-    projects.projects[1].title,
-    projects.projects[1].dates,
-    projects.projects[1].description,
-    projects.projects[1].images
-];
-projects.projects[1].display = replaceAndAppend(".project-entry", defaultProjectDetails, realProjectDetails2nd);
+projects.display();
 
 // Education-----------------------------------------------------------------------------------------------------
-$("#education").append(HTMLschoolStart);
+education.display = function() {
+    $("#education").append(HTMLschoolStart);
 
-var defaultSchoolDetails = [
-    HTMLschoolName,
-    HTMLschoolDegree,
-    HTMLschoolDates,
-    HTMLschoolLocation,
-    HTMLschoolMajor
-];
+    var defaultSchoolDetails = [
+        HTMLschoolName,
+        HTMLschoolDegree,
+        HTMLschoolDates,
+        HTMLschoolLocation,
+        HTMLschoolMajor
+    ];
+    var realSchoolDetails1st = [
+        education.schools[0].name,
+        education.schools[0].degree,
+        education.schools[0].dates,
+        education.schools[0].location,
+        education.schools[0].majors
+    ];
+    var realSchoolDetails2nd = [
+        education.schools[1].name,
+        education.schools[1].degree,
+        education.schools[1].dates,
+        education.schools[1].location,
+        education.schools[1].majors
+    ];
+    education.schools[0].display = function() {
+        replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails1st);
+    };
+    education.schools[0].display();
+    education.schools[1].display = function() {
+        replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails2nd);
+    };
 
-var realSchoolDetails1st = [
-    education.schools[0].name,
-    education.schools[0].degree,
-    education.schools[0].dates,
-    education.schools[0].location,
-    education.schools[0].majors
-];
-
-var realSchoolDetails2nd = [
-    education.schools[1].name,
-    education.schools[1].degree,
-    education.schools[1].dates,
-    education.schools[1].location,
-    education.schools[1].majors
-];
-
-education.schools[0].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails1st);
-education.schools[1].display = replaceAndAppend(".education-entry", defaultSchoolDetails, realSchoolDetails2nd);
-// Education.onlineCourse-----------------------------------------------------
-$(".education-entry").append(HTMLonlineClasses);
-var formattedonlineTitle1 = HTMLonlineTitle.replace("#", education.onlineCourses[0].url).replace("%data%", "Udacity");
-var formattedonlineTitle2 = HTMLonlineTitle.replace("#", education.onlineCourses[1].url).replace("%data%", "Lynda");
-var defaultOnlineCoursesDetails = [
-    HTMLonlineTitle,
-    HTMLonlineSchool,
-    HTMLonlineDates,
-    HTMLonlineURL
-];
-
-var realOnlineCourses1st = [
-    formattedonlineTitle1,
-    education.onlineCourses[0].school,
-    education.onlineCourses[0].degree,
-    education.onlineCourses[0].dates,
-    education.onlineCourses[0].url
-];
-
-education.onlineCourses[0].display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses1st);
-
-var realOnlineCourses2nd = [
-    formattedonlineTitle2,
-    education.onlineCourses[1].school,
-    education.onlineCourses[1].degree,
-    education.onlineCourses[1].dates,
-    education.onlineCourses[1].url
-];
-education.onlineCourses[1].display = replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses2nd);
+    education.schools[1].display();
+    // Education.onlineCourse-----------------------------------------------------
+    $(".education-entry").append(HTMLonlineClasses);
+    var formattedonlineTitle1 = HTMLonlineTitle.replace("#", education.onlineCourses[0].url).replace("%data%", "Udacity");
+    var formattedonlineTitle2 = HTMLonlineTitle.replace("#", education.onlineCourses[1].url).replace("%data%", "Lynda");
+    var defaultOnlineCoursesDetails = [
+        HTMLonlineTitle,
+        HTMLonlineSchool,
+        HTMLonlineDates,
+        HTMLonlineURL
+    ];
+    var realOnlineCourses1st = [
+        formattedonlineTitle1,
+        education.onlineCourses[0].school,
+        education.onlineCourses[0].degree,
+        education.onlineCourses[0].dates,
+        education.onlineCourses[0].url
+    ];
+    education.onlineCourses[0].display = function() {
+        replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses1st);
+    };
+    education.onlineCourses[0].display();
+    var realOnlineCourses2nd = [
+        formattedonlineTitle2,
+        education.onlineCourses[1].school,
+        education.onlineCourses[1].degree,
+        education.onlineCourses[1].dates,
+        education.onlineCourses[1].url
+    ];
+    education.onlineCourses[1].display = function() {
+        replaceAndAppend(".education-entry", defaultOnlineCoursesDetails, realOnlineCourses2nd);
+    };
+    education.onlineCourses[1].display();
+};
+education.display();
 
 // Google Map-----------------------------------------------------------------------------------------------------
 
